@@ -67,4 +67,4 @@ as well as a frequency histogram of cascade sizes:
 10: 1
 ```
 
-Note that at each cascade size the frequency approximately doubles. By updating the parameters of the simulation, you can change this coefficient. This is [scale-free](https://en.wikipedia.org/wiki/Scale-free_network)!
+Note that at each cascade size the frequency approximately halves. By updating the parameters of the simulation, you can change this coefficient. This is [scale-free](https://en.wikipedia.org/wiki/Scale-free_network)!
