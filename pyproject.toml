@@ -1,0 +1,92 @@
+[tool.poetry]
+authors = ["Chris Gregory <christopher.b.gregory@gmail.com>"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.12",
+]
+description = "Sand pile simulation."
+keywords = ["sand", "pile", "simulation"]
+license = "Apache Software License"
+name = "sand"
+readme = "README.md"
+repository = "https://github.com/gregorybchris/sand"
+version = "0.1.0"
+
+[[tool.poetry.packages]]
+include = "sand"
+
+[tool.poetry.dependencies]
+click = "^8.1.7"
+numpy = "^2.1.1"
+opencv-python = "^4.10.0.84"
+python = ">=3.12"
+rich = "^13.8.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.11.2"
+pytest = "^8.3.3"
+ruff = "^0.6.7"
+semver = "^3.0.2"
+
+[tool.poetry.scripts]
+sand = "sand.cli:main"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.mypy]
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+src = ["sand"]
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "ARG",
+    "B",
+    "BLE",
+    "C4",
+    "E",
+    "EM",
+    "ERA",
+    "F",
+    "FIX",
+    "G",
+    "I",
+    "ICN",
+    "ISC",
+    "LOG",
+    "N",
+    "PL",
+    "PT",
+    "PTH",
+    "PLR",
+    "RET",
+    "RUF",
+    "SIM",
+    "SLF",
+    "T20",
+    "TCH",
+    "TD",
+    "TID",
+    "W",
+]
+ignore = ["FIX002", "TD003"]
+
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 120
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.extend-per-file-ignores]
+"**/tests/**/*.py" = ["SLF"]

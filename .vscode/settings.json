@@ -1,15 +1,19 @@
 {
-  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 2 },
-  "[sass]": { "editor.defaultFormatter": "syler.sass-indented", "editor.tabSize": 2 },
-  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 2 },
-  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 2 },
+  "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
   "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
-  "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.rulers": [120],
+  "mypy-type-checker.args": ["--config-file=pyproject.toml", "--enable-incomplete-feature=NewGenericSyntax"],
   "prettier.printWidth": 120,
-  "editor.formatOnSave": true
+  "ruff.configuration": "pyproject.toml",
+  "ruff.nativeServer": true,
+  "cSpell.words": []
 }
