@@ -20,7 +20,6 @@ include = "sand"
 [tool.poetry.dependencies]
 click = "^8.1.7"
 numpy = "^2.1.1"
-opencv-python = "^4.10.0.84"
 python = ">=3.12"
 rich = "^13.8.1"
 
