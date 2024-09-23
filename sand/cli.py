@@ -30,6 +30,8 @@ def set_logger_config(info: bool, debug: bool) -> None:
 @click.option("--seed", type=int, default=None)
 @click.option("--stability-threshold", type=int, default=2)
 @click.option("--drop-variance", type=float, default=0.1)
+@click.option("--show-pile", is_flag=True)
+@click.option("--show-plots", is_flag=True)
 @click.option("--info", is_flag=True)
 @click.option("--debug", is_flag=True)
 def simulate_command(  # noqa: PLR0913
@@ -38,8 +40,10 @@ def simulate_command(  # noqa: PLR0913
     seed: Optional[int],
     stability_threshold: int,
     drop_variance: float,
-    info: bool = False,
-    debug: bool = False,
+    show_pile: bool,
+    show_plots: bool,
+    info: bool,
+    debug: bool,
 ) -> None:
     set_logger_config(info=info, debug=debug)
 
@@ -51,4 +55,4 @@ def simulate_command(  # noqa: PLR0913
         drop_variance=drop_variance,
     )
     simulation = Simulation.new(params)
-    simulation.simulate(steps)
+    simulation.simulate(show_pile=show_pile, show_plots=show_plots)

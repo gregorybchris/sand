@@ -1,4 +1,5 @@
 import logging
+import math
 import queue
 from collections import defaultdict
 from dataclasses import dataclass
@@ -114,7 +115,7 @@ class Simulation:
     def new(cls, params: SimulationParams) -> "Simulation":
         return cls(params)
 
-    def simulate(self, steps: int) -> None:
+    def simulate(self, show_pile: bool = False, show_plots: bool = False) -> None:
         logger.info("Starting simulation with parameters")
         logger.info("size=%d", self.params.size)
         logger.info("steps=%d", self.params.steps)
@@ -131,14 +132,22 @@ class Simulation:
         )
 
         fall_histogram: defaultdict[int, int] = defaultdict(int)
-        for _ in range(steps):
+        for _ in range(self.params.steps):
             falls = pile.drop(variance=self.params.drop_variance)
             fall_histogram[falls] += 1
 
-        logger.info("Final pile data:\n%s", pile.data)
-
-        logger.info("Falls histogram:")
-        for falls, count in sorted(fall_histogram.items()):
-            logger.info("%d: %d", falls, count)
-
         logger.info("Simulation done")
+
+        if show_pile:
+            logger.info("Final pile data:\n%s", pile.data)
+
+        if show_plots:
+            logger.info("Falls histogram:")
+            for falls, count in sorted(fall_histogram.items()):
+                logger.info("%d: %d", falls, count)
+
+            logger.info("Falls log-log histogram:")
+            for falls, count in sorted(fall_histogram.items()):
+                log_falls = math.log(falls + 1)
+                log_count = math.log(count + 1)
+                logger.info("%f: %f", log_falls, log_count)

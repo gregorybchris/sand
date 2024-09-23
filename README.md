@@ -23,7 +23,7 @@ poetry install
 ## Usage
 
 ```bash
-sand simulate --info --seed 42 --steps 1000 --size 20 --stability-threshold 4
+sand simulate --info --show-pile --show-plots --seed 42 --steps 1000 --size 20 --stability-threshold 4
 ```
 
 ## Output
